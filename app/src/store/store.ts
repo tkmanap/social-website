@@ -1,12 +1,14 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {profileSlice} from "./profileSlice";
+import {apiSlice} from "./api";
 
 const rootReducer = combineReducers({
-    profile: profileSlice.reducer
+    [apiSlice.reducerPath]: apiSlice.reducer
 })
 
 export const store = configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware().concat(apiSlice.middleware)
 })
 
 export type RootState = ReturnType<typeof store.getState>
