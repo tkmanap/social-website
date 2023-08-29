@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {CHAT_ROUTE, HOME_ROUTE} from "./router";
+import {CHAT_ROUTE, HOME_ROUTE, LOGIN_ROUTE} from "./router";
 
 const SideBar: React.FC = () => {
     return (
@@ -11,6 +11,9 @@ const SideBar: React.FC = () => {
                 </li>
                 <li>
                     <Link to={HOME_ROUTE}>Home</Link>
+                </li>
+                <li>
+                    <Link to={LOGIN_ROUTE}>LOGIN</Link>
                 </li>
             </ul>
         </>
