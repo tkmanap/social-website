@@ -1,11 +1,15 @@
 import React from 'react';
+import s from './Chat.module.css'
+import Chats from "./Chats";
+import ChatSideBar from "./ChatSideBar";
 
 const Chat = () => {
     return (
-        <div>
-            <ul>
-
-            </ul>
+        <div className={s.chat}>
+            <div className={s.container}>
+                <ChatSideBar />
+                <Chats />
+            </div>
         </div>
     );
 };

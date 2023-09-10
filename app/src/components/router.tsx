@@ -4,13 +4,16 @@ import ErrorPage from "./ErrorPage";
 import Chat from "../pages/Chat/Chat";
 import React from "react";
 import Home from "../pages/Home/Home";
-import LoginPage from "../pages/Authorization/LoginPage";
-import SignUpPage from "../pages/Authorization/SignUpPage";
+import SignUp from "../pages/Authorization/SignUp";
+import SignIn from "../pages/Authorization/SignIn";
+import Profile from "../pages/Profile/Profile";
+
 
 export const CHAT_ROUTE = '/chat'
 export const HOME_ROUTE = '/home'
 export const LOGIN_ROUTE = '/login'
 export const REGISTER_ROUTE = '/register'
+export const PROFILE_ROUTE = '/profile'
 
 
 export const router = createBrowserRouter([
@@ -25,15 +28,19 @@ export const router = createBrowserRouter([
             },
             {
                 path: HOME_ROUTE,
-                element: <Home />
+                element: <Home/>
             },
             {
                 path: REGISTER_ROUTE,
-                element: <SignUpPage />
+                element: <SignUp/>
             },
             {
                 path: LOGIN_ROUTE,
-                element: <LoginPage />
+                element: <SignIn />
+            },
+            {
+                path: PROFILE_ROUTE,
+                element: <Profile />
             }
         ]
     },

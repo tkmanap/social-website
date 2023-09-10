@@ -1,30 +1,40 @@
 import React, {useState} from 'react';
+import s from "./Sign.module.css";
 
-interface FormProps{
-    title: string;
-    handleClick: (email: string, password: string) => void
+
+interface FormPropsTypes {
+    title: string,
+    handleForm: (email: string, password: string) => void
 }
 
-const Form: React.FC<FormProps> = ({title, handleClick}) => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+const Form: React.FC<FormPropsTypes> = ({title, handleForm}) => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     return (
-        <div>
-            <input type="email"
-                   value={email}
-                   onChange={(e) => setEmail(e.target.value)}
-            />
-            <input type="password"
-                   value={password}
-                   onChange={(e) => setPassword(e.target.value)}
-            />
-            <button
-                onClick={() => handleClick(email, password)}
-            >
-                {title}
-            </button>
+        <div className={s.container}>
+            <div className={s.formWrapper}>
+                <span className={s.title}>{title}</span>
+                <form>
+                    <input
+                        type="email"
+                        placeholder={'Email'}
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                    />
+                    <input
+                        type="password"
+                        placeholder={'Password'}
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                    />
+                    <button
+                        onClick={() => handleForm(email, password)}
+                    >{title}</button>
+                </form>
+            </div>
         </div>
     );
 };
 
-export {Form};
+
+export default Form;
